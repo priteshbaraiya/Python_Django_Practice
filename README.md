@@ -63,8 +63,8 @@ To access Admin Panel: http://127.0.0.1:8000/admin/
 ![Alerts System](screenshots/smartalerts.png)
 
 ### 4. Forecasting
-![forecasting ](screenshots/forecasting.png)
+![Forecasting ](screenshots/forecasting.png)
 
-### 6. Inventory Report
+### 5. Inventory Report
 ![Inventory Report](screenshots/downloadreports.png)
 
