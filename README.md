@@ -1,4 +1,20 @@
 # 📦 Smart Inventory Management System
+## 📸 Screenshots
+
+### 1. Admin Dashboard
+![Admin Dashboard](https://github.com/user-attachments/assets/73330aa3-2533-431e-9b4f-a9532dad122f)
+
+### 2. Login Page
+![Login Page](https://github.com/user-attachments/assets/cbda44fe-9c83-492c-b4d8-ad8e3a839ba3)
+
+### 3. Smart Alerts
+![Smart Alerts](https://github.com/user-attachments/assets/fd109f9a-ad0f-4de4-9383-33316ece57ad)
+
+### 4. Forecasting
+![Forecasting](https://github.com/priteshbaraiya/Smart-Inventory-Management-Forecasting-System/blob/main/screenshots/forecasting.png?raw=true)
+
+### 5. Inventory Report
+![Inventory Report](https://github.com/user-attachments/assets/95f0ac8a-a85f-4bd6-ba76-e57330bd1cb2)
 
 > A comprehensive web-based solution for managing stock, tracking sales, and forecasting demand using Python & Django.
 
@@ -50,27 +66,3 @@ python manage.py runserver
 Open your browser and go to: http://127.0.0.1:8000/
 
 To access Admin Panel: http://127.0.0.1:8000/admin/
-
-## 📸 Screenshots
-
-### 1. Admin Dashboard
-![Admin Dashboard](https://github.com/user-attachments/assets/73330aa3-2533-431e-9b4f-a9532dad122f)
-
-### 2. Login Page
-![Login Page](https://github.com/user-attachments/assets/cbda44fe-9c83-492c-b4d8-ad8e3a839ba3)
-
-### 3. Smart Alerts
-![Smart Alerts](https://github.com/user-attachments/assets/fd109f9a-ad0f-4de4-9383-33316ece57ad)
-
-### 4. Forecasting
-![Forecasting](https://github.com/priteshbaraiya/Smart-Inventory-Management-Forecasting-System/blob/main/screenshots/forecasting.png?raw=true)
-
-### 5. Inventory Report
-![Inventory Report](https://github.com/user-attachments/assets/95f0ac8a-a85f-4bd6-ba76-e57330bd1cb2)
-
-### 6. More Project Views
-![Extra View 1](https://github.com/user-attachments/assets/2aac7f67-eeb7-4992-8dc5-584a7ed5c587)
-![Extra View 2](https://github.com/user-attachments/assets/20cd5559-c41c-4108-92a7-8a150b2fcae2)
-![Extra View 3](https://github.com/user-attachments/assets/d96053f0-a48a-41d6-aa17-d4bdc60d2155)
-![Extra View 4](https://github.com/user-attachments/assets/cfe00e8a-aea9-43b7-8f93-cf4d507bf28b)
-![Extra View 5](https://github.com/user-attachments/assets/8b684ee1-99dd-4b7f-b107-4b664d93bbe8)
