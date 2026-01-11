@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'inventory',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +56,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [ BASE_DIR / "templates",
-    "/var/www/static/",],
+    ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -117,12 +118,25 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-    BASE_DIR / "assets"]
+    BASE_DIR / "static"]
 
 
 #added menually     
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
-    "/var/www/static/",
 ]
+
+# Email Configuration for OTP
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'your-email@gmail.com'  # Replace with your Gmail address
+EMAIL_HOST_PASSWORD = 'your-app-password'      # Replace with your Gmail app password
+DEFAULT_FROM_EMAIL = 'your-email@gmail.com'
+
+# Note: For Gmail, you may need to enable "Less secure app access" in your Google Account settings,
+# or preferably, use an "App Password" if you have 2-Factor Authentication enabled.
+
+LOGIN_REDIRECT_URL = '/'

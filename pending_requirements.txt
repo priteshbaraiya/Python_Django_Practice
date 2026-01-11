@@ -1,0 +1,35 @@
+Based on the project description, here is a summary of the features that have been implemented and those that are still pending.
+
+### Implemented in this session:
+
+1.  **Product Model Enhancement:**
+    -   The `Product` model was updated to include `name` and `cost_price`.
+    -   A system to auto-generate a unique `product_id` (e.g., `PROD-1678886400`) upon creation was implemented.
+
+2.  **Machine Learning Demand Forecasting:**
+    -   The forecasting logic was upgraded from a simple percentage growth to a `LinearRegression` model from the `scikit-learn` library.
+    -   The system now analyzes past daily sales to forecast total product demand for the next 30 days.
+    -   The "Demand Forecasting" page has been updated with a new chart to visualize the historical data vs. the ML forecast.
+
+3.  **Advanced Report Generation:**
+    -   The inventory report download has been upgraded from CSV to a styled **Excel (.xlsx)** file using `openpyxl`.
+    -   A new sales report download has been created, which generates a **PDF** file using `reportlab`.
+
+### Pending Requirements:
+
+1.  **Database Migrations:**
+    -   **Action Needed:** You must run `python manage.py makemigrations` and `python manage.py migrate` in your terminal. This is critical to apply the new `name` and `cost_price` fields to your database.
+
+2.  **Dashboard Metrics:**
+    -   `Total Purchase` and `Profit` metrics are still pending. This requires creating a `Purchase` model and a system to track the cost of goods sold, which adds significant complexity.
+
+3.  **Advanced Forecasting & Reordering:**
+    -   The ML model forecasts total demand but does not yet do it **per product category**.
+    -   The `PurchasePlan` (reorder list) is still based on a simple stock threshold (`< 20`) and is not yet connected to the ML forecast results.
+
+4.  **Smart Alerts:**
+    -   **Expiry Alerts:** This requires adding an `expiry_date` field to the `Product` model and then creating a view to check for upcoming expiries.
+    -   **Predicted Shortage Alerts:** These are still pending, as they depend on the per-product ML forecast.
+
+5.  **Data Import Script:**
+    -   The `import_data.py` script likely needs to be updated to work with the new `Product` model structure (e.g., providing a `name` and `cost_price` for new products).

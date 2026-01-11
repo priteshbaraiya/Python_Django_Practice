@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{% block title %}Demand Forecasting{% endblock title %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row mb-4">
+        <div class="col">
+            <h2 class="text-white">Demand Forecasting</h2>
+            <p class="text-white-50">Predict next month's demand based on historical sales data.</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Data Table Column -->
+        <div class="col-lg-7 mb-4">
+            <div class="card bg-dark text-white">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Forecasting Data by Category</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-dark table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Category</th>
+                                    <th scope="col">Current Stock</th>
+                                    <th scope="col">Total Sold Historically</th>
+                                    <th scope="col">Predicted Next Month Demand</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in forecasting_data %}
+                                <tr>
+                                    <td>{{ item.category }}</td>
+                                    <td>{{ item.current_stock }}</td>
+                                    <td>{{ item.total_sold }}</td>
+                                    <td>{{ item.predicted_demand }}</td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="4" class="text-center">No sales data available to forecast demand.</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chart Column -->
+        <div class="col-lg-5 mb-4">
+            <div class="card bg-dark text-white">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Total Sold vs. Predicted Demand</h5>
+                </div>
+                <div class="card-body">
+                    <canvas id="demandChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const ctx = document.getElementById('demandChart').getContext('2d');
+        const demandChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: {{ chart_labels|safe }},
+                datasets: [
+                    {
+                        label: 'Total Sold Historically',
+                        data: {{ chart_total_sold|safe }},
+                        backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Predicted Demand',
+                        data: {{ chart_predicted_demand|safe }},
+                        backgroundColor: 'rgba(255, 206, 86, 0.6)',
+                        borderColor: 'rgba(255, 206, 86, 1)',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            color: '#fff'
+                        },
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            color: '#fff'
+                        },
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#fff'
+                        }
+                    }
+                }
+            }
+        });
+    });
+</script>
+{% endblock content %}

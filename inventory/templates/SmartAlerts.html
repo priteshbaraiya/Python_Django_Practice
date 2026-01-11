@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block title %}Smart Alerts{% endblock title %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <h2 class="text-white">Smart Alerts</h2>
+            <p class="text-white-50">Critical and warning alerts for your inventory.</p>
+        </div>
+        <div class="col-md-4 text-md-end">
+            <a href="{% url 'PurchasePlan' %}" class="btn btn-info">
+                <i class="fas fa-shopping-cart"></i> View Purchase Plan
+            </a>
+        </div>
+    </div>
+
+    <!-- Alert Counts -->
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="card bg-danger text-white mb-3">
+                <div class="card-body d-flex align-items-center">
+                    <i class="fas fa-exclamation-circle fa-3x me-3"></i>
+                    <div>
+                        <h5 class="card-title">{{ out_of_stock_count }} Products Out of Stock</h5>
+                        <p class="card-text">Immediate action required!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card bg-warning text-dark mb-3">
+                <div class="card-body d-flex align-items-center">
+                    <i class="fas fa-exclamation-triangle fa-3x me-3"></i>
+                    <div>
+                        <h5 class="card-title">{{ low_stock_count }} Products with Low Stock</h5>
+                        <p class="card-text">Consider reordering soon.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Out of Stock Alerts -->
+    <div class="mb-4">
+        <h4 class="text-danger"><i class="fas fa-ban"></i> Out of Stock Alerts</h4>
+        {% if out_of_stock_products %}
+            <div class="row">
+            {% for product in out_of_stock_products %}
+                <div class="col-md-6 col-lg-4 mb-3">
+                    <div class="alert alert-danger" role="alert">
+                        <h5 class="alert-heading">{{ product.product_id }}</h5>
+                        <p class="mb-0"><strong>Category:</strong> {{ product.category }}</p>
+                        <hr>
+                        <p class="mb-0">This product has 0 units in stock. Sales are blocked.</p>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        {% else %}
+            <div class="alert alert-success" role="alert">
+                <i class="fas fa-check-circle"></i> No products are currently out of stock. Great job!
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Low Stock Alerts -->
+    <div>
+        <h4 class="text-warning"><i class="fas fa-triangle-exclamation"></i> Low Stock Alerts</h4>
+        {% if low_stock_products %}
+             <div class="row">
+            {% for product in low_stock_products %}
+                <div class="col-md-6 col-lg-4 mb-3">
+                    <div class="alert alert-warning" role="alert">
+                        <h5 class="alert-heading">{{ product.product_id }}</h5>
+                        <p class="mb-0"><strong>Category:</strong> {{ product.category }}</p>
+                        <hr>
+                        <p class="mb-0">Only <strong>{{ product.inventory_level }}</strong> units remaining.</p>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        {% else %}
+            <div class="alert alert-info" role="alert">
+                <i class="fas fa-info-circle"></i> No products are currently running low on stock.
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+{% comment %} Font Awesome for icons {% endcomment %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+{% endblock content %}
