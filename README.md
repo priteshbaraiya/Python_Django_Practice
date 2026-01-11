@@ -54,7 +54,7 @@ To access Admin Panel: http://127.0.0.1:8000/admin/
 ## 📸 Screenshots
 
 ### 1. Admin Dashboard
-![Dashboard View](https://github.com/priteshbaraiya/Smart-Inventory-Management-Forecasting-System/blob/main/screenshots/dashboard.png?raw=true)
+![Dashboard View](https://raw.githubusercontent.com/priteshbaraiya/Smart-Inventory-Management-Forecasting-System/main/screenshots/dashboard.png?raw=true)
 
 ### 2. Login Page
 ![Login Page](https://github.com/priteshbaraiya/Smart-Inventory-Management-Forecasting-System/blob/main/screenshots/login.png?raw=true)
