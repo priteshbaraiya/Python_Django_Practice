@@ -18,8 +18,8 @@
 
 > A comprehensive web-based solution for managing stock, tracking sales, and forecasting demand using Python & Django.
 
-![License](https://img.shields.io/badge/license-MIT-yellow)
 ![Smart Inventory](https://img.shields.io/badge/Smart-Inventory-blue)
+![License](https://img.shields.io/badge/license-MIT-red)
 ![Project Status](https://img.shields.io/badge/Status-Completed-success)
 ![Python](https://img.shields.io/badge/Python-3.12-blue)
 ![Django](https://img.shields.io/badge/Django-5.0%2B-green)
